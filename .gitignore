@@ -80,10 +80,13 @@ celerybeat-schedule
 
 # Environments
 .env
-.venv
+.venv/
+.venv-tmp/
+.mplconfig/
 env/
 venv/
 ENV/
+outputs/
 
 # Spyder project settings
 .spyderproject

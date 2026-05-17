@@ -1,7 +1,8 @@
 import networkx as nx
-import matplotlib.pyplot as plt
 import numpy as np
 from scipy import optimize
+from plot_runtime import plt, save_current_figure
+
 NUM = 50
 m = 5
 
@@ -12,7 +13,7 @@ def f_1(x, A, B):
 
 G = nx.random_graphs.barabasi_albert_graph(NUM, m)
 nx.draw(G)
-plt.show()
+save_current_figure("ba_network.png")
 # plt.figure()
 # degree = nx.degree_histogram(G)
 # x = [1.0 * i for i in range(len(degree))]

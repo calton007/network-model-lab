@@ -1,7 +1,8 @@
 import networkx as nx
-import matplotlib.pyplot as plt
 import random
 import math
+from plot_runtime import plt, save_current_figure
+
 NUM = 282
 p = 7.35 / 281
 
@@ -16,7 +17,6 @@ for i in range(NUM):
             if random.random() < p:
                 G.add_edge(i, j)
 # nx.draw(G, pos=nx.circular_layout(G))
-plt.show()
 degree = nx.degree_histogram(G)
 x = range(len(degree))
 y = [z / float(sum(degree)) for z in degree]
@@ -31,7 +31,8 @@ except nx.exception.NetworkXError:
     print("Graph is not connected.")
 plt.figure()
 plt.scatter(x, y, marker='.')
+save_current_figure("gnp_degree_distribution.png")
 # log
 plt.figure()
 plt.loglog(x, y, linewidth=0, marker='.')
-plt.show()
+save_current_figure("gnp_degree_loglog.png")
